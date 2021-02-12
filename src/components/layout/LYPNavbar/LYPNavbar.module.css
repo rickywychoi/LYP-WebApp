@@ -1,0 +1,16 @@
+.navbar {
+  position: relative;
+}
+
+.brand {
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important; /* 50% of your logo width */
+  display: block;
+}
+
+.menus {
+  position: absolute;
+  right: 0;
+  margin-right: 0.8em;
+}
