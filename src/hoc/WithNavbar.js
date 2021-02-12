@@ -1,5 +1,5 @@
 import React from 'react'
-import LYPNavbar from '../components/layout/LYPNavbar/LYPNavbar'
+import LYPNavbar from '../components/LYPNavbar/LYPNavbar'
 
 function WithNavBar ( WrappingComponent ) {
   return (props) => (
