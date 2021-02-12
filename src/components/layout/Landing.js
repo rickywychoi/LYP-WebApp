@@ -4,7 +4,7 @@ import logo from '../../assets/images/LYP-Logo-no-link.png'
 import Card from './Card';
 
 
-function Landing() {
+const Landing = () => {
     return (
         <div>
             <nav className="navbar navbar-light bg-light p-3">
