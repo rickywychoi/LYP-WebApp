@@ -1,7 +1,7 @@
 import React from 'react';
 import videoBackground from '../../assets/videos/background_v2.mp4'
 import logo from '../../assets/images/LYP-Logo-no-link.png'
-import Card from './Card';
+import Card from '../../components/layout/Card';
 
 
 function Landing() {
