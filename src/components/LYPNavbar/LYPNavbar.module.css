@@ -9,7 +9,7 @@
 .brand {
   position: absolute;
   left: 50%;
-  margin-left: -50px !important; /* 50% of your logo width */
+  margin-left: -100px !important; /* 50% of your logo width */
   display: block;
 }
 
@@ -17,4 +17,8 @@
   position: absolute;
   right: 0;
   margin-right: 0.8em;
+}
+
+.logo {
+  width: 200px;
 }
