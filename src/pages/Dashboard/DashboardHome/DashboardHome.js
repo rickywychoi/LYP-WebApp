@@ -3,12 +3,12 @@ import styles from './DashboardHome.module.css'
 import WithNavBar from '../../../hoc/WithNavbar/WithNavbar'
 import LYPColumns from '../../../hoc/LYPColumns/LYPColumns'
 
+import SideWidget from '../../../components/SideWidget/SideWidget'
+
 function DashboardHome () {
   return (
     <LYPColumns>
-      <div style={{backgroundColor: 'azure', height: '150px'}}>
-        1
-      </div>
+      <SideWidget />
       <div style={{backgroundColor: 'azure', height: '1500px'}}>
         2
       </div>
