@@ -1,29 +1,21 @@
 import React from 'react'
 import styles from './DashboardHome.module.css'
-import WithNavBar from '../../../hoc/WithNavbar'
+import WithNavBar from '../../../hoc/WithNavbar/WithNavbar'
+import LYPColumns from '../../../hoc/LYPColumns/LYPColumns'
 
 function DashboardHome () {
   return (
-    <div className={`row ${styles.mainRow}`}>
-      <div
-        style={{ backgroundColor: 'azure', height: '150px', top: '54px' }}
-        className='col-3 sticky-top'
-      >
+    <LYPColumns>
+      <div style={{backgroundColor: 'azure', height: '150px'}}>
         1
       </div>
-      <div
-        style={{ backgroundColor: 'azure', height: '1500px' }}
-        className='col-5'
-      >
+      <div style={{backgroundColor: 'azure', height: '1500px'}}>
         2
       </div>
-      <div
-        style={{ backgroundColor: 'azure', height: '150px', top: '54px' }}
-        className='col-4 sticky-top'
-      >
+      <div style={{backgroundColor: 'azure', height: '150px'}}>
         3
       </div>
-    </div>
+    </LYPColumns>
   )
 }
 

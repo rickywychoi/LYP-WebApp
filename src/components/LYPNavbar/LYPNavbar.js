@@ -4,7 +4,7 @@ import styles from './LYPNavbar.module.css'
 
 function LYPNavbar () {
   return (
-    <div className="sticky-top">
+    <div className={`sticky-top ${styles.body}`}>
       <Navbar bg='light' variant='light' className={styles.navbar}>
         <Form inline>
           <FormControl type='text' placeholder='Search' className='mr-sm-2' />
