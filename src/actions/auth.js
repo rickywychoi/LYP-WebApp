@@ -1,29 +1,34 @@
 import axios from 'axios';
 import firebase from '../config/firebase';
-
+import setAuthToken from '../config/setAuthToken';
 import {
     REGISTER_SUCCESS,
     REGISTER_FAIL,
     AUTH_ERROR,
     USER_LOADED,
-    LOGIN_SUCCESS
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGOUT,
 } from './types'
 
-import setAuthToken from '../config/setAuthToken';
 
-
-//TODO middle ware
-// export const loadUser = () => async dispatch => {
-//     if(localStorage.token) {
-//         setAuthToken(localStorage.token);
-//     }
-
-//     try {
-//         const res = await.
-//     } catch (error) {
-        
-//     }
-// }
+//Load User
+export const loadUser = () => async dispatch => {
+    if(localStorage.token) {
+        setAuthToken(localStorage.token);
+    }
+    try {
+        const res = await axios.get('/api/auth/');
+        dispatch({
+          type: USER_LOADED,
+          payload: res.data
+        })
+    } catch (error) {
+        dispatch({
+          type: AUTH_ERROR,
+        })
+    }
+}
 
 
 //Register User
@@ -45,6 +50,7 @@ export const register = ({ firstName, lastName, email, password, address, compan
             payload: res.data,
         });
         await user.sendEmailVerification();
+        await firebase.auth().signOut();
     } catch (error) {
         console.error(error);
 
@@ -56,24 +62,41 @@ export const register = ({ firstName, lastName, email, password, address, compan
 
 
 export const login = ({ email, password}) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-type': 'application/json'
+     }
+  }
+
+
     try {
-        // await firebase.login({email, password});
         await firebase.auth().signInWithEmailAndPassword(email, password);
-        console.log('before email')
         const user = firebase.auth().currentUser;
+
         if(user.emailVerified) {
-            const token = await user.getIdToken(true);
-            dispatch({
-                type: LOGIN_SUCCESS,
-                token,
+            user.getIdToken(true).then(async(token)=> {
+              const auth = 'Bearer '.concat(token);
+              const res = await axios.get(`/api/auth/`, {headers: {Authorization: auth}});
+              console.log(res);
+              dispatch({
+                  type: LOGIN_SUCCESS,
+                  payload: res.data,
+                  token: auth,
+              })
             })
         }
-        console.log('after email')
     } catch (error) {
         console.error(error);
 
         dispatch({
-            type: REGISTER_FAIL
+            type: LOGIN_FAIL
         })
     }
+}
+
+
+// LOGOUT
+export const logout = () => async dispatch => {
+  await firebase.auth().signOut();
+  dispatch({type: LOGOUT});
 }

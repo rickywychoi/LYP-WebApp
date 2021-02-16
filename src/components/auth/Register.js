@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import axios from 'axios';
-import firebase from '../../config/firebase';
+import {Link, Redirect} from 'react-router-dom';
 import {register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-const Register =({register}) => {
+const Register =({register, isAuthenticated}) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -47,23 +45,11 @@ const Register =({register}) => {
                 location: '',
             }
             register(newUser);
-
-            // try {
-            //     const config = {
-            //         headers: {
-            //             'Content-Type' : 'application/json'
-            //         }
-            //     }
-            //     const {user} = await firebase.auth().createUserWithEmailAndPassword(email, password);
-            //     const body = JSON.stringify(newUser);
-            //     const res = await axios.post('/api/auth/register', body, config);
-            //     console.log(res.data);
-
-            //     await user.sendEmailVerification();
-            // } catch (error) {
-            //     console.error(error);
-            // }
         }
+    }
+
+    if(isAuthenticated) {
+        return <Redirect to="/" />
     }
     return (
         <div className="container  mx-auto">
@@ -97,7 +83,11 @@ const Register =({register}) => {
 }
 Register.propTypes = {
     register : PropTypes.func.isRequired,
+    isAuthenticated : PropTypes.bool,
 }
 
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
 
-export default connect(null, {register}) (Register);
+export default connect(mapStateToProps, {register}) (Register);
