@@ -3,7 +3,10 @@ const path = require('path')
 
 module.exports = {
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      'api': 'http://localhost:3000'
+    }
   },
   mode: 'development',
   entry: { index: path.resolve(__dirname, 'src', 'index.js') },
