@@ -14,7 +14,7 @@ import UserProfile from './pages/User/UserProfile'
 import GroupProfile from './pages/Group/GroupProfile'
 
 //Components
-import PrivateRoute from './components/routing/PrivateRoute'
+// import PrivateRoute from './components/routing/PrivateRoute'
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
