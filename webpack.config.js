@@ -5,7 +5,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     proxy: {
-      'api': 'http://localhost:3000'
+      '/api': 'http://localhost:3000'
     }
   },
   mode: 'development',
@@ -28,6 +28,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|ico|svg|mp4)$/i,
