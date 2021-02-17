@@ -1,13 +1,13 @@
 import React from 'react'
 import LYPNavbar from '../../components/LYPNavbar/LYPNavbar'
 
-function WithNavBar ( WrappingComponent ) {
+function WithNavbar ( WrappingComponent ) {
   return (props) => (
     <div className="container">
-      <LYPNavbar />
+      <LYPNavbar {...props} />
       <WrappingComponent {...props}/>
     </div>
   )
 }
 
-export default WithNavBar
+export default WithNavbar
