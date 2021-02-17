@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Button, ListGroup, Image } from 'react-bootstrap'
+import { Card, ListGroup, Image } from 'react-bootstrap'
 import axios from 'axios'
 import WithNavbar from '../../hoc/WithNavbar/WithNavbar'
 import useQuery from '../../util/useQuery'
-import { useHistory, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import constants from '../../config/constants'
 import profilePlaceholder from '../../assets/images/Profile_avatar_placeholder.png'
 import styles from './SearchResult.module.css'
 
 function SearchResult () {
   let query = useQuery('q')
-  const history = useHistory()
   const [usersResult, setUsersResult] = useState([])
   const [groupsResult, setGroupsResult] = useState([])
 
