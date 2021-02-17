@@ -2,8 +2,12 @@
   margin: 0;
 }
 
-.side {
-  padding: 0;
+.sideLeft {
+  padding-left: 0;
+}
+
+.sideRight {
+  padding-right: 0;
 }
 
 .sideWrapee {
