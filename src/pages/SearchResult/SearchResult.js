@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Card, ListGroup, Image } from 'react-bootstrap'
+import { Card, ListGroup } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import WithNavbar from '../../hoc/WithNavbar/WithNavbar'
+import ProfileImageProcessor from '../../components/ProfileImageProcessor/ProfileImageProcessor'
 import useQuery from '../../util/useQuery'
-import { Link } from 'react-router-dom'
 import constants from '../../config/constants'
-import profilePlaceholder from '../../assets/images/Profile_avatar_placeholder.png'
 import styles from './SearchResult.module.css'
 
 function SearchResult () {
@@ -23,6 +23,12 @@ function SearchResult () {
       .catch(error => console.log(error))
   }, [query])
 
+  const profileImgStyle = {
+    width: '54px',
+    height: '54px',
+    padding: '0'
+  }
+
   const noResult = <div>There is no result.</div>
 
   const usersSection = (
@@ -36,15 +42,11 @@ function SearchResult () {
                 return (
                   <ListGroup.Item key={_id} className={styles.resultItem}>
                     <Link to={`/profile/${email}`}>
-                      <div className={styles.profileImg}>
-                        <Image
-                          src={
-                            profilePicUrl ? profilePicUrl : profilePlaceholder
-                          }
-                          roundedCircle
-                          fluid
-                        />
-                      </div>
+                      <ProfileImageProcessor
+                        src={profilePicUrl}
+                        id={_id}
+                        style={profileImgStyle}
+                      />
                     </Link>
                     <div className={styles.description}>
                       <p className={styles.name}>
@@ -83,21 +85,18 @@ function SearchResult () {
                 return (
                   <ListGroup.Item key={_id} className={styles.resultItem}>
                     <Link to={`/groupprofile/${groupName}`}>
-                      <div className={styles.profileImg}>
-                        <Image
-                          src={
-                            groupPhotoUrl ? groupPhotoUrl : profilePlaceholder
-                          }
-                          roundedCircle
-                          fluid
-                        />
-                      </div>
+                      <ProfileImageProcessor
+                        src={groupPhotoUrl}
+                        id={_id}
+                        style={profileImgStyle}
+                      />
                     </Link>
                     <div className={styles.description}>
                       <p className={styles.name}>{groupName}</p>
                       <p className={styles.name}>{description}</p>
                       <p className={styles.name}>
-                        There {numOfUsers > 1 ? 'are' : 'is'} {numOfUsers} member
+                        There {numOfUsers > 1 ? 'are' : 'is'} {numOfUsers}{' '}
+                        member
                         {numOfUsers > 1 ? 's' : ''} in this group.
                       </p>
                     </div>
@@ -115,7 +114,10 @@ function SearchResult () {
 
   return (
     <div className={styles.body}>
-      <h3><span style={{color: '#969696'}}>Search results for: </span>{query}</h3>
+      <h3>
+        <span style={{ color: '#969696' }}>Search results for: </span>
+        {query}
+      </h3>
       <hr />
       {usersSection}
       {groupsSection}
