@@ -1,0 +1,26 @@
+.body {
+  padding-bottom: 100px;
+}
+
+.usersSection {
+  margin-bottom: 20px;
+}
+
+.profileImg {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  margin-left: 20px;
+}
+
+.name {
+  margin: 0;
+}
