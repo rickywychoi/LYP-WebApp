@@ -6,12 +6,6 @@
   margin-bottom: 20px;
 }
 
-.profileImg {
-  width: 54px;
-  height: 54px;
-  padding: 0;
-}
-
 .resultItem {
   display: flex;
   align-items: center;
