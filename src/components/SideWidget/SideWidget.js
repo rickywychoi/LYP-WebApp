@@ -4,8 +4,6 @@ import styles from './SideWidget.module.css'
 import { useHistory } from 'react-router-dom'
 
 function SideWidget (props) {
-  console.log(props)
-
   const history = useHistory()
   
   return (
