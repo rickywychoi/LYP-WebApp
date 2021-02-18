@@ -9,7 +9,7 @@ function LYPColumns (props) {
       <div className={`col-3 ${styles.sideLeft}`}>
         { React.cloneElement(children[0], {className: `sticky-top ${styles.sideWrapee}`}) }
       </div>
-      <div className='col-6'>
+      <div className={`col-6 ${styles.center}`}>
         { children[1] }
       </div>
       <div className={`col-3 ${styles.sideRight}`}>

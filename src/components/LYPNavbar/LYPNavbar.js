@@ -20,7 +20,7 @@ function LYPNavbar () {
   }
 
   return (
-    <div className={`sticky-top ${styles.body}`}>
+    <div className={`sticky-top`}>
       <Navbar bg='light' variant='light' className={styles.navbar}>
         <Form inline>
           <FormControl

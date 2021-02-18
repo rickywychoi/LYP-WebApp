@@ -10,16 +10,6 @@ import { logout } from '../../actions/auth'
 const Landing = ({ auth: {isAuthenticated, loading }, logout}) => {
     return (
         <div>
-            <nav className="navbar navbar-light bg-light p-3">
-              <img src={logo} alt="logo images with text" width="200"/>
-              {/* <div className="collaps navbar-collapse">
-                <ui className="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <li className="nav-item active">
-                    <a onClick={logout} href="#!">Logout</a>
-                  </li>
-                </ui>
-              </div> */}
-            </nav>
             <div>
               <video autoPlay muted loop className="w-100">
                   <source src={videoBackground} type="video/mp4"/>

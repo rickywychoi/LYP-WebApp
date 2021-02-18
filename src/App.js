@@ -17,12 +17,11 @@ import GroupProfile from './pages/Group/GroupProfile'
 // import PrivateRoute from './components/routing/PrivateRoute'
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import LYPNavbar from './components/LYPNavbar/LYPNavbar'
 
 if(localStorage.token) {
   setAuthToken(localStorage.token);
 }
-
-
 
 const App = () => {
 
@@ -33,6 +32,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
+        <LYPNavbar />
         <Switch>
           <Route exact path='/' component={Landing}/>
           <Route exact path='/login' component={Login}/>
