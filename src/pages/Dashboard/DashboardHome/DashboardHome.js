@@ -3,8 +3,8 @@ import styles from './DashboardHome.module.css'
 import WithNavBar from '../../../hoc/WithNavbar/WithNavbar'
 import LYPColumns from '../../../hoc/LYPColumns/LYPColumns'
 
-import SideWidget from '../../../components/SideWidget/SideWidget'
-import AdSection from '../../../components/AdSection/AdSection'
+import SideWidget from '../../../containers/SideWidget/SideWidget'
+import AdSection from '../../../containers/AdSection/AdSection'
 
 function DashboardHome () {
   return (
