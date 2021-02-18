@@ -1,7 +1,6 @@
 import axios from 'axios'
 import firebase from '../config/firebase'
 import setAuthToken from '../config/setAuthToken'
-import { useHistory } from 'react-router-dom'
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -88,12 +87,6 @@ export const register = ({
 }
 
 export const login = ({ email, password }) => async dispatch => {
-  const config = {
-    headers: {
-      'Content-type': 'application/json'
-    }
-  }
-
   try {
     await firebase.auth().signInWithEmailAndPassword(email, password)
     const user = firebase.auth().currentUser

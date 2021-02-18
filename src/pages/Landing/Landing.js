@@ -23,7 +23,7 @@ const Landing = ({ auth: { isAuthenticated, loading }, logout }) => {
             <Tab eventKey='register' title='Register'>
               <Register />
             </Tab>
-            <Tab eventKey='login' title='login'>
+            <Tab eventKey='login' title='Login'>
               <Login />
             </Tab>
           </Tabs>

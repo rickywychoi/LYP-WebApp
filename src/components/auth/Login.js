@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { login } from '../../actions/auth'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Link, Redirect, useHistory } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import styles from './Form.module.css'
 
 const Login = ({ login, isAuthenticated, location }) => {
@@ -56,7 +56,7 @@ const Login = ({ login, isAuthenticated, location }) => {
       </form>
       <p className='text-dark mt-5'>
         Forgot your password?{' '}
-        <a className='text-primary' href=''>
+        <a className='text-primary' href='/'>
           Click here
         </a>
       </p>
