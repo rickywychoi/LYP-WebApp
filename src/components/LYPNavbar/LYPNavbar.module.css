@@ -18,3 +18,7 @@
 .logo {
   width: 200px;
 }
+
+.hide {
+  visibility: hidden;
+}

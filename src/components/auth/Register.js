@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {Link, Redirect} from 'react-router-dom';
 import {register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-const Register =({register, isAuthenticated}) => {
+const Register =({register}) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -47,16 +46,9 @@ const Register =({register, isAuthenticated}) => {
             register(newUser);
         }
     }
-
-    if(isAuthenticated) {
-        return <Redirect to="/" />
-    }
     return (
-        <div className="container  mx-auto">
-            <h1 className="large text-primary">Sign up</h1>
-            <p className="lead">
-                Create Your Account
-            </p>
+        <div className="container text-center p-3">
+            <h1 className=" text-primary">Sign up</h1>
             <form onSubmit={e => onSubmit(e)} className="form">
                 <div className="form-group">
                     <input type="text" placeholder="First Name" name='firstName' onChange={e=> onChange(e)} value={firstName} required />
@@ -73,21 +65,13 @@ const Register =({register, isAuthenticated}) => {
                 <div className="form-group">
                     <input type="password" placeholder="Confirm Password" name="confirmPassword" onChange={e=> onChange(e)} value={confirmPassword}/>
                 </div>
-                <input type="submit" className="btn btn-primary" value="Register"/>
+                <input type="submit" className="btn btn-primary m-1" value="Register"/>
             </form>
-            <p className="my-3">
-                Already have an account? <Link to="/login">Sign in</Link>
-            </p>
         </div>
     )
 }
 Register.propTypes = {
     register : PropTypes.func.isRequired,
-    isAuthenticated : PropTypes.bool,
 }
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
-})
-
-export default connect(mapStateToProps, {register}) (Register);
+export default connect(null, {register}) (Register);

@@ -20,15 +20,12 @@ const Login =({login, isAuthenticated}) => {
         login(formData);
     }
     if(isAuthenticated) {
-        return <Redirect to="/" />
+        return <Redirect to="/home" />
     }
 
     return (
-        <div className="container">
-            <h1 className="large text-primary">Sign in</h1>
-            <p className="lead">
-                Create Your Account
-            </p>
+        <div className="container text-center p-3 ">
+            <h1 className="text-primary">Sign in</h1>
             <form onSubmit={e => onSubmit(e)} className="form">
                 <div className="form-group">
                     <input type="email" placeholder="Email Address" name="email" value={email} onChange={e=> onChange(e)} required/>
@@ -38,6 +35,7 @@ const Login =({login, isAuthenticated}) => {
                 </div>
                 <input type="submit" className="btn btn-primary" value="Login" />
             </form>
+            <p className="text-dark mt-5">Forgot your password? <a className="text-primary" href="">Click here</a></p>
         </div>
     )
 }
