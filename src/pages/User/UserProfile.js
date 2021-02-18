@@ -1,12 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import styles from './UserProfile.module.css'
+import WithNavBar from '../../hoc/WithNavbar/WithNavbar'
+import ProfileHeader from './ProfileHeader'
+
 
 function UserProfile() {
   return (
     <>
-      <h1 className={styles.test}>User Profile</h1>
+      <ProfileHeader name = "Brian"/>
     </>
   )
 }
 
-export default UserProfile
+export default WithNavBar(UserProfile)

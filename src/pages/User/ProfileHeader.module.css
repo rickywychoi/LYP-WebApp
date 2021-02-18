@@ -1,0 +1,286 @@
+.test {
+    background-color: azure;
+    height: 1500px;
+}
+
+.row {
+    border: 0;
+    box-sizing: border-box;
+    width: 110%;
+}
+
+.profileBlock {
+    margin: auto;
+    position: relative;
+    width: 110%;
+    /* margin-bottom: 1rem; */
+}
+
+.profileBlockThumb {
+    display: block;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+}
+
+.profileCoverContainer {
+    background: #1e90ff;
+    background: -webkit-radial-gradient(bottom, #73d6f5 12%, #1e90ff);
+    background: radial-gradient(at bottom, #73d6f5 12%, #1e90ff);
+}
+
+.profileFloat {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.profileImg {
+    position: relative;
+    display: inline-block;
+    z-index: 5;
+    margin: -1.5rem 0 -2.0rem 0.5rem;
+}
+
+.profileImgElement {
+    background-color: #fff;
+    padding: 5px;
+    height: 158px;
+    width: 158px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.profileContainerMenu {
+    position: relative;
+    width: 50%;
+    /* margin-bottom: 1rem; */
+}
+
+.profileMenu {
+    border: 1px solid #d3d6db;
+    border-radius: 0 0 3px 3px;
+    height: 44px;
+    position: relative;
+    overflow: hidden;
+    clear: right;
+    padding-left: 205px;
+    margin: auto;
+    width: 110%;
+    /* margin-left: 95px;
+    margin-bottom: 100px; */
+}
+
+.profileMenuUL {
+    margin: 0;
+    padding: 0;
+}
+
+.profileMenuList {
+    display: inline-block;
+}
+
+.profileMenuA {
+    border-right: 1px solid #e9eaed;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 42px;
+    line-height: 3;
+    padding: 0 17px;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+    color: #4b4f56;
+    text-transform: capitalize;
+    border: none;
+}
+
+/* .float-button {
+    opacity: 0.8;
+    margin: 0.5rem;
+}
+  
+.profile-block {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.profile-block-update-background {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+  
+.profile-block-thumb {
+    display: block;
+    height: 315px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+}
+  
+.profile-block-menu {
+    border: 1px solid #d3d6db;
+    border-radius: 0 0 3px 3px;
+    height: 44px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    clear: right;
+    padding-left: 205px;
+}
+  
+#dp {
+    display: inline-block;
+    margin: 0.5rem 0;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.profile-block-menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-block-menu ul li {
+    display: inline-block;
+}
+  
+.profile-block-menu ul li a {
+    border-right: 1px solid #e9eaed;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 42px;
+    line-height: 3;
+    padding: 0 17px;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+    color: #4b4f56;
+    text-transform: capitalize;
+}
+  
+.profile-block-menu ul li:first-child a {
+    border-left: 1px solid #e9eaed;
+}
+  
+.profile-cover-container {
+    background: #1e90ff;
+    background: -webkit-radial-gradient(bottom, #73d6f5 12%, #1e90ff);
+    background: radial-gradient(at bottom, #73d6f5 12%, #1e90ff);
+}
+  
+.profile-float {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+} 
+
+.profile-float .profile-img {
+    position: relative;
+    z-index: 5;
+    margin: 1.5rem;
+}
+
+.profile-float .profile-img a {
+    display: block;
+}
+
+.profile-float .profile-img a img {
+    background-color: #fff;
+    border-radius: 2px;
+    height: 158px;
+    padding: 5px;
+    width: 158px;
+}
+
+.profile-float .profile-img label {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0;
+    transition: 0.4s all;
+}
+
+.profile-float .profile-img:hover label {
+    opacity: 1;
+}
+  
+      /* a {
+        display: block;
+  
+        img {
+          background-color: #fff;
+          border-radius: 2px;
+          height: 158px;
+          padding: 5px;
+          width: 158px;
+        }
+      }
+  
+      label {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 50%;
+        transform: translate(-50%);
+        opacity: 0;
+        transition: 0.4s all;
+      }
+  
+      &:hover label {
+        opacity: 1;
+      }
+    } */
+  
+.profile-float .profile-info {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2.7rem;
+}
+  
+.profile-float .profile-info .profile-info-left {
+    margin-bottom: 0.5rem;
+}
+.profile-float .profile-info .profile-info-left h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 1rem;
+}
+.profile-float .profile-info .profile-info-right {
+    margin-bottom: 0.5rem;
+} 
+  
+      /* .profile-info-left {
+        margin-bottom: 0.5rem;
+  
+        h2 {
+          color: #fff;
+          font-size: 24px;
+          font-weight: 600;
+          text-transform: uppercase;
+          margin: 1rem;
+        }
+      }
+  
+      .profile-info-right {
+        margin-bottom: 0.5rem;
+      }
+    }
+  } */
+  
