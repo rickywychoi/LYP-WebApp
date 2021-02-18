@@ -1,19 +1,16 @@
 .mainRow {
-  margin: 0;
+  margin: 26px 0 0 0;
 }
 
 .sideLeft {
-  /* padding-left: 0; */
   padding-right: 5%;
 }
 
 .center {
-  margin-top: 26px;
   padding: 0 5%;
 }
 
 .sideRight {
-  /* padding-right: 0; */
   padding-left: 5%;
 }
 

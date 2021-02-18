@@ -12,6 +12,7 @@ import Landing from './pages/Landing/Landing'
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome'
 import UserProfile from './pages/User/UserProfile'
 import GroupProfile from './pages/Group/GroupProfile'
+import SearchResult from './pages/SearchResult/SearchResult'
 
 //Components
 // import PrivateRoute from './components/routing/PrivateRoute'
@@ -40,6 +41,7 @@ const App = () => {
           <Route exact path='/home' component={DashboardHome}/>
           <Route exact path='/user' component={UserProfile}/>
           <Route exact path='/group' component={GroupProfile}/>
+          <Route exact path='/search' component={SearchResult}/>
         </Switch>
       </Router>
     </Provider>
