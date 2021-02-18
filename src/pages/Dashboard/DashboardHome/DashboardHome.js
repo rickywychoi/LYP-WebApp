@@ -1,6 +1,5 @@
 import React from 'react'
-import styles from './DashboardHome.module.css'
-import WithNavBar from '../../../hoc/WithNavbar/WithNavbar'
+// import styles from './DashboardHome.module.css'
 import LYPColumns from '../../../hoc/LYPColumns/LYPColumns'
 
 import SideWidget from '../../../containers/SideWidget/SideWidget'
@@ -16,4 +15,4 @@ function DashboardHome () {
   )
 }
 
-export default WithNavBar(DashboardHome)
+export default DashboardHome

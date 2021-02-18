@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({image, body, title, link}) {
+const Card = ({image, body, title, link}) => {
     return (
         <div className="card h-100">
         <div className="p-3">

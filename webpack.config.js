@@ -3,7 +3,10 @@ const path = require('path')
 
 module.exports = {
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
   },
   mode: 'development',
   entry: { index: path.resolve(__dirname, 'src', 'index.js') },
@@ -25,6 +28,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|ico|svg|mp4)$/i,

@@ -1,9 +1,17 @@
 .mainRow {
-  margin: 0;
+  margin: 26px 0 0 0;
 }
 
-.side {
-  padding: 0;
+.sideLeft {
+  padding-right: 5%;
+}
+
+.center {
+  padding: 0 5%;
+}
+
+.sideRight {
+  padding-left: 5%;
 }
 
 .sideWrapee {

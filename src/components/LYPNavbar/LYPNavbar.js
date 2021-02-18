@@ -4,7 +4,7 @@ import { Navbar, Nav, Form, FormControl, Image } from 'react-bootstrap'
 import styles from './LYPNavbar.module.css'
 import logo from '../../assets/images/LYP-Logo-no-link.png'
 
-function LYPNavbar () {
+function LYPNavbar (props) {
   const [query, setQuery] = useState('')
   const history = useHistory()
 
@@ -15,14 +15,14 @@ function LYPNavbar () {
 
   const handleSubmit = (target) => {
     if (target.charCode === 13) {
-      history.push(`/search/${query}`)
+      history.push(`/search?q=${query}`)
     }
   }
 
   return (
-    <div className={`sticky-top ${styles.body}`}>
+    <div className={`sticky-top`}>
       <Navbar bg='light' variant='light' className={styles.navbar}>
-        <Form inline>
+        <Form inline onSubmit={(e) => {e.preventDefault(); return false;}}>
           <FormControl
             type='text'
             placeholder='Search'
@@ -31,7 +31,7 @@ function LYPNavbar () {
             onKeyPress={handleSubmit}
           />
         </Form>
-        <Navbar.Brand href='/' className={styles.brand}>
+        <Navbar.Brand href='/home' className={styles.brand}>
           <Image src={logo} className={styles.logo} />
         </Navbar.Brand>
         <Nav className={styles.menus}>

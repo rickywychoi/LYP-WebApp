@@ -1,15 +1,15 @@
 import React from 'react';
+// import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import videoBackground from '../../assets/videos/background_v2.mp4'
 import logo from '../../assets/images/LYP-Logo-no-link.png'
 import Card from '../../components/layout/Card';
+import { logout } from '../../actions/auth'
 
-
-function Landing() {
+const Landing = ({ auth: {isAuthenticated, loading }, logout}) => {
     return (
         <div>
-            <nav className="navbar navbar-light bg-light p-3">
-              <img src={logo} alt="logo images with text" width="200"/>
-            </nav>
             <div>
               <video autoPlay muted loop className="w-100">
                   <source src={videoBackground} type="video/mp4"/>
@@ -44,5 +44,14 @@ function Landing() {
     )
 }
 
+Landing.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+}
 
-export default Landing;
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+
+export default connect(mapStateToProps, { logout })(Landing);
