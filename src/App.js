@@ -15,7 +15,7 @@ import GroupProfile from './pages/Group/GroupProfile'
 import SearchResult from './pages/SearchResult/SearchResult'
 
 //Components
-// import PrivateRoute from './components/routing/PrivateRoute'
+import PrivateRoute from './components/routing/PrivateRoute'
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import LYPNavbar from './components/LYPNavbar/LYPNavbar'
@@ -38,10 +38,10 @@ const App = () => {
           <Route exact path='/' component={Landing}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/register' component={Register}/>
-          <Route exact path='/home' component={DashboardHome}/>
+          <PrivateRoute exact path='/home' component={DashboardHome}/>
           <Route exact path='/user' component={UserProfile}/>
           <Route exact path='/group' component={GroupProfile}/>
-          <Route exact path='/search' component={SearchResult}/>
+          <PrivateRoute exact path='/search' component={SearchResult}/>
         </Switch>
       </Router>
     </Provider>

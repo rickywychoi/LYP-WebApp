@@ -1,35 +1,33 @@
-import React, {Fragment} from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import videoBackground from '../../assets/videos/background_v2.mp4';
-import Card from '../../components/layout/Card';
-import { logout } from '../../actions/auth';
-import { Tab, Tabs } from 'react-bootstrap';
-import Register from '../../components/auth/Register';
-import Login from '../../components/auth/Login';
-import styles from './Landing.module.css';
+import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import videoBackground from '../../assets/videos/background_v2.mp4'
+import Card from '../../components/layout/Card'
+import { logout } from '../../actions/auth'
+import { Tab, Tabs } from 'react-bootstrap'
+import Register from '../../components/auth/Register'
+import Login from '../../components/auth/Login'
+import styles from './Landing.module.css'
 
 const Landing = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <Fragment>
-      <div className={`${styles.vHeader} ${styles.con}`}>
-        <div className={styles.fullscreeVideoWrap}>
-          <video autoPlay muted loop>
+      <div className={styles.vHeader}>
+        <div className={styles.fullscreenVideoWrap}>
+          <video autoPlay muted loop className={styles.videoSection}>
             <source src={videoBackground} type='video/mp4' />
           </video>
         </div>
-        {/* <div className={styles.formContent}> */}
-          <div className={`${styles.headerContent} w-25 p-1`}>
-            <Tabs defaultActiveKey='register'>
-              <Tab eventKey='register' title='Register'>
-                <Register />
-              </Tab>
-              <Tab eventKey='login' title='login'>
-                <Login />
-              </Tab>
-            </Tabs>
-          </div>
-        {/* </div> */}
+        <div className={`${styles.headerContent} w-25 p-1`}>
+          <Tabs defaultActiveKey='register'>
+            <Tab eventKey='register' title='Register'>
+              <Register />
+            </Tab>
+            <Tab eventKey='login' title='login'>
+              <Login />
+            </Tab>
+          </Tabs>
+        </div>
       </div>
       <div className='container'>
         <div className='row my-5'>
@@ -60,16 +58,16 @@ const Landing = ({ auth: { isAuthenticated, loading }, logout }) => {
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
 Landing.propTypes = {
   logout: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-};
+  auth: PropTypes.object.isRequired
+}
 
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
+const mapStateToProps = state => ({
+  auth: state.auth
+})
 
-export default connect(mapStateToProps, { logout })(Landing);
+export default connect(mapStateToProps, { logout })(Landing)

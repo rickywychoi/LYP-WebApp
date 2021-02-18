@@ -1,10 +1,10 @@
 import React from 'react'
 import PostCard from '../../../components/PostCard/PostCard'
-import styles from './NewsFeed.module.css'
+// import styles from './NewsFeed.module.css'
 
 function NewsFeed () {
   return (
-    <div className={styles.body}>
+    <div>
       <PostCard />
       <PostCard />
       <PostCard />
