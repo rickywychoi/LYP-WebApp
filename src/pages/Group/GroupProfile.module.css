@@ -1,3 +1,12 @@
 .test {
   background-color: blue;
 }
+.container {
+  height: 1500em;
+  background-color: azure;
+}
+
+.card_css {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
+}
