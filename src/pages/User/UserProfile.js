@@ -1,5 +1,4 @@
 import React from 'react'
-import WithNavBar from '../../hoc/WithNavbar/WithNavbar'
 import LYPColumns from '../../hoc/LYPColumns/LYPColumns'
 import Image from 'react-bootstrap/Image'
 import Avatar from 'react-avatar';
@@ -41,4 +40,4 @@ function UserProfile() {
   )
 }
 
-export default WithNavBar(UserProfile);
+export default UserProfile;
