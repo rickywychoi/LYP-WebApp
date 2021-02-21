@@ -6,25 +6,19 @@ import LYPColumns from '../../hoc/LYPColumns/LYPColumns'
 import SideWidget from '../../components/SideWidget/SideWidget'
 import AdSection from '../../components/AdSection/AdSection'
 import FriendDropDown from '../../components/Search/FriendDropDown'
+import CardV2 from '../../components/layout/CardV2'
 
 function GroupProfile() {
   return (
     <>
       <LYPColumns>
       <SideWidget />
-      
-      <div style={{ backgroundColor: 'azure', height: '1500em' }}>
-          <FriendDropDown />
-          <div class="dropdown">
-          <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-          <div id="myDropdown" class="dropdown-content">
-            <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"></input>
-            
-            <div>
-              
-            </div>
-          </div>
-      </div>
+      <div className={styles.container}>
+        <br/>
+        <FriendDropDown />
+          <CardV2 />
+        <br/>
+          <CardV2 />
       </div>
       <AdSection />
     </LYPColumns>
