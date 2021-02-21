@@ -19,6 +19,7 @@ import PrivateRoute from './components/routing/PrivateRoute'
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import LYPNavbar from './components/LYPNavbar/LYPNavbar'
+import PushExample from './components/Push/PushExample'
 
 if(localStorage.token) {
   setAuthToken(localStorage.token);
@@ -42,6 +43,7 @@ const App = () => {
           <Route exact path='/user' component={UserProfile}/>
           <Route exact path='/group' component={GroupProfile}/>
           <PrivateRoute exact path='/search' component={SearchResult}/>
+          <Route exact path='/push' component={PushExample}/>
         </Switch>
       </Router>
     </Provider>
