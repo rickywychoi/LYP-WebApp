@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.vHeader {
+  height: 110vh;
+  display: flex;
+  color: #fff;
+  margin: auto;
+}
+
+.fullscreenVideoWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.videoSection {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.headerContent {
+  z-index: 2;
+  background-color: white;
+  border-radius: 3px;
+  opacity: 0.9;
+  height: 28rem;
+  margin: auto auto auto 70%;
+}
+
+@media only screen and (max-width: 960px) {
+  .headerContent {
+    margin: auto;
+    width: 65% !important;
+    padding: 5%;
+  }
+}

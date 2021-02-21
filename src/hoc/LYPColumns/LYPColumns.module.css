@@ -1,0 +1,19 @@
+.mainRow {
+  margin: 26px 0 0 0;
+}
+
+.sideLeft {
+  padding-right: 5%;
+}
+
+.center {
+  padding: 0 5%;
+}
+
+.sideRight {
+  padding-left: 5%;
+}
+
+.sideWrapee {
+  top: 80px;
+}
