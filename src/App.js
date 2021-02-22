@@ -17,7 +17,6 @@ import SearchResult from './pages/SearchResult/SearchResult'
 //Components
 import PrivateRoute from './components/routing/PrivateRoute'
 import Login from './components/auth/Login';
-import Register from './components/auth/Register';
 import LYPNavbar from './components/LYPNavbar/LYPNavbar'
 
 if(localStorage.token) {
@@ -37,7 +36,6 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={Landing}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/register' component={Register}/>
           <PrivateRoute exact path='/home' component={DashboardHome}/>
           <Route exact path='/user' component={UserProfile}/>
           <Route exact path='/group' component={GroupProfile}/>
