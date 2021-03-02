@@ -20,21 +20,22 @@ function UserProfile() {
       <div className={styles.wrapper}>
         <Nav justify variant="tabs" defaultActiveKey="/home">
           <Nav.Item>
-            <Nav.Link href="/home">Timeline</Nav.Link>
+            <Nav.Link>Timeline</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-1">About</Nav.Link>
+            <Nav.Link>About</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2">Friends</Nav.Link>
+            <Nav.Link>Friends</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-3">Groups</Nav.Link>
+            <Nav.Link>Groups</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-4">Media</Nav.Link>
+            <Nav.Link>Media</Nav.Link>
           </Nav.Item>
         </Nav>
+
       </div>
     </div>
     </>
