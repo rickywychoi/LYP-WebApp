@@ -1,0 +1,25 @@
+.container {
+  background-color: aqua;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.inner_container {
+  display: inline-block;
+  width: 70%;
+  background-color: aquamarine;
+  margin: 0 auto;
+}
+.form_container {
+  margin: 0 auto;
+  width: 70%;
+}
+.empty_div {
+  height: 2em;
+}
+.posts_container {
+  margin: 0 auto;
+  width: 70%;
+  background-color: beige;
+  height: 50em;
+}
