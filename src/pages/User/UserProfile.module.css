@@ -1,3 +1,7 @@
+html {
+  text-align: center;
+  margin: 0 auto;
+}
 .col-centered {
   float: none;
   margin: 0 auto;
@@ -12,6 +16,7 @@
 }
 .sample {
   text-align: center;
+  margin: 0 auto;
 }
 .container {
   width: 100%;
@@ -19,4 +24,27 @@
 }
 .wrapper {
   margin: 0 auto;
+}
+.grid_container {
+  margin: 0 auto;
+  width: 40%;
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "avatar_container name_container . ."
+    "avatar_container user_follower . ."
+    ;
+}
+.avatar_container {
+   grid-area: avatar_container; 
+}
+.name_container { 
+  grid-area: name_container; 
+}
+.user_follower { 
+  grid-area: user_follower; 
+}
+.empty_container {
+  height: 5em;
 }
