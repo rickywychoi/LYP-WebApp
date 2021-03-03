@@ -76,14 +76,14 @@ export const register = ({
     })
     await user.sendEmailVerification()
     await firebase.auth().signOut()
-    return {status: true};
+    return { status: true }
   } catch (error) {
     console.error(error)
 
     dispatch({
       type: REGISTER_FAIL
     })
-    return {status: false};
+    return { status: false }
   }
 }
 
@@ -103,10 +103,13 @@ export const login = ({ email, password }) => async dispatch => {
           payload: res.data,
           token: auth
         })
+        return {
+          status: true,
+          emailVerified: true
+        }
       })
-    }
-    else {
-      return {emailVerified: false};
+    } else {
+      return { emailVerified: false }
     }
   } catch (error) {
     console.error(error)
@@ -114,7 +117,7 @@ export const login = ({ email, password }) => async dispatch => {
     dispatch({
       type: LOGIN_FAIL
     })
-    return {status: false};
+    return { status: false }
   }
 }
 
