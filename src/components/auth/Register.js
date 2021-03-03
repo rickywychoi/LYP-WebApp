@@ -1,35 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { register } from '../../actions/auth'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import styles from './Form.module.css'
+import {toast, ToastContainer} from 'react-toastify';
+import "!style-loader!css-loader!react-toastify/dist/ReactToastify.css";
 
+toast.configure();
 const Register = ({ register }) => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    address: '',
-    companyName: '',
-    city: '',
-    province: '',
-    country: '',
-    profilePicUrl: '',
-    backgroundPicture: '',
-    location: ''
-  })
+  const initialState = 
+    {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      address: '',
+      companyName: '',
+      city: '',
+      province: '',
+      country: '',
+      profilePicUrl: '',
+      backgroundPicture: '',
+      location: ''
+    }
+
+  const [formData, setFormData] = useState(initialState);
+
+  const [errorMsg, setErrorMsg] = useState("")
 
   const { firstName, lastName, email, password, confirmPassword } = formData
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value })
+
+  const notify = () => {
+    toast.success('You Registered Successfully', {closeOnClick: true, draggable: true, className: `${styles.toast}`})
+    toast.info('Check your inbox and verify your email', {closeOnClick: true, draggable: true, });
+  }    
   const onSubmit = async e => {
     e.preventDefault()
 
+
     if (password !== confirmPassword) {
-      console.log('Password do not match')
+      setErrorMsg("Password does not match");
     } else {
       const newUser = {
         firstName,
@@ -45,12 +59,28 @@ const Register = ({ register }) => {
         backgroundPicture: '',
         location: ''
       }
-      register(newUser)
+      const res = await register(newUser)
+      console.log(res);
+      if(res.status === false) {
+        console.log("invalid");
+        setErrorMsg("User already exists")
+      } else {
+        setFormData(initialState);
+        notify();
+      }
     }
   }
 
+  useEffect(()=> {
+    setTimeout(()=> {
+      setErrorMsg("");
+    }, 3000)
+  }, [errorMsg]);
+
+
   return (
     <div className='container text-center p-3'>
+    <ToastContainer/>
       <h1 className=' text-primary mb-4'>Sign up</h1>
       <form onSubmit={e => onSubmit(e)} className='form'>
         <div className='form-group'>
@@ -107,6 +137,7 @@ const Register = ({ register }) => {
           />
         </div>
         <input type='submit' className='btn btn-primary m-3' value='Register' />
+        <p className="text-danger">{errorMsg}</p>
       </form>
     </div>
   )

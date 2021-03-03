@@ -70,19 +70,20 @@ export const register = ({
       .auth()
       .createUserWithEmailAndPassword(email, password)
     const res = await axios.post('/api/auth/register', body, config)
-    console.log(res.data)
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data
     })
     await user.sendEmailVerification()
     await firebase.auth().signOut()
+    return {status: true};
   } catch (error) {
     console.error(error)
 
     dispatch({
       type: REGISTER_FAIL
     })
+    return {status: false};
   }
 }
 
@@ -97,7 +98,6 @@ export const login = ({ email, password }) => async dispatch => {
         const res = await axios.get(`/api/auth/`, {
           headers: { Authorization: auth }
         })
-        console.log(res)
         dispatch({
           type: LOGIN_SUCCESS,
           payload: res.data,
@@ -105,12 +105,16 @@ export const login = ({ email, password }) => async dispatch => {
         })
       })
     }
+    else {
+      return {emailVerified: false};
+    }
   } catch (error) {
     console.error(error)
 
     dispatch({
       type: LOGIN_FAIL
     })
+    return {status: false};
   }
 }
 

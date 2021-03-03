@@ -7,8 +7,8 @@ const Card = ({image, body, title, link}) => {
             <img className="card-img-top" src={image} alt="Card image cap"/>
         </div>
         <div className="card-body d-flex flex-column">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{body}</p>
+            <h5 className="card-title card_css">{title}</h5>
+            <p className="card-text card_css">{body}</p>
             <a href={link} className="btn btn-link mt-auto">Website</a>
         </div>
         </div>
