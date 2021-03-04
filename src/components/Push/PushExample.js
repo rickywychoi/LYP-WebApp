@@ -1,80 +1,64 @@
 import React, { useEffect, useState } from 'react'
-import { io } from 'socket.io-client'
-import sw from '../../util/serviceWorker'
+import axios from 'axios'
+import propTypes from 'prop-types'
+import { connect } from 'react-redux'
+// import sw from '../../util/serviceWorker'
 
-const publicVapidKey = "BJih9sKk7e_8jxB2qdGYjMC6gI4e0ANWvIN8JqGsvQTuefCe-c-8-AI3tYWtayzCGiLltcxWCx2Iu8hWVZ_2z20"
+// const publicVapidKey = "BJih9sKk7e_8jxB2qdGYjMC6gI4e0ANWvIN8JqGsvQTuefCe-c-8-AI3tYWtayzCGiLltcxWCx2Iu8hWVZ_2z20"
 
-function PushExample () {
-  const [response, setResponse] = useState('')
+function PushExample ({ user }) {
+  const [notifications, setNotifications] = useState([])
+  const [inputMessage, setInputMessage] = useState('')
+  const [recipients, setRecipients] = useState([])
+
   useEffect(() => {
-    const socket = io('http://localhost:4000', {
-      reconnectionDelayMax: 10000
+    axios.get('/api/notification/receive')
+    .then(res => {
+      setNotifications(res.data)
     })
-
-    socket.on('connect', () => {
-      console.log(socket.id)
-    })
-
-    socket.on('FromAPI', data => {
-      setResponse(data)
-    })
+    .catch(e => console.error(e))
   }, [])
-  // const handleSend = () => {
-  //   if ("serviceWorker" in navigator) {
-  //     send().catch(err => console.error(err))
-  //   }
-  // }
 
-  // const send = async () => {
-  //   // Register Service Worker
-  //   console.log('Registering service worker...')
-  //   const register = await navigator.serviceWorker.register(sw, {
-  //     scope: '/'
-  //   })
-  //   console.log('Service Worker Registered...')
+  const trigger = () => {
+    if (user) {
+      axios.post('/api/notification/send', {
+        date: new Date(),
+        fromUid: user._id,
+        toUid: recipients,
+        checked: false,
+        message: inputMessage
+      })
+      .then(res => console.log(res))
+      .catch(e => console.error(e))
+    }
+  }
 
-  //   // Register Push
-  //   console.log('Registering Push...')
-  //   const subscription = await register.pushManager.subscribe({
-  //     userVisibleOnly: true,
-  //     applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
-  //   })
-  //   console.log('Push Registered...')
-
-  //   // Send Push Notification
-  //   console.log('Sending Push...')
-  //   await fetch('/api/subscribe', {
-  //     method: 'POST',
-  //     body: JSON.stringify(subscription),
-  //     headers: {
-  //       'content-type': 'application/json'
-  //     }
-  //   })
-  //   console.log('Push Sent...')
-  // }
+  const handleInputChange = e => {
+    e.preventDefault()
+    setInputMessage(e.target.value)
+  }
 
   return (
-    <div>
-      <p>
-        Hello, I got {response ? response : '-'} from api!
-      </p>
+    <div style={{ padding: '5%' }}>
+      <p>I am {user ? user.email : ''}</p>
+      {/* <p>Hello, I got {response ? response.message : 'nothing'} from api!</p> */}
+      <span>
+        <button onClick={() => setRecipients([...recipients, 'bVIgGqWBbdS4dMo2FEs1DgjhxW23'])}>cchaff0105@gmail.com</button>
+        <button onClick={() => setRecipients([...recipients, 'h0vNbQHgcJXGxTpqMZv5KxqD2m62'])}>wonyoung0105@naver.com</button>
+      </span>
+      <p>Sending to: {recipients.map(r => (r + ', '))}</p>
+      <input onChange={handleInputChange} />
+      <button onClick={trigger}>Trigger</button>
     </div>
   )
 }
 
-function urlBase64ToUint8Array(base64String) {
-  const padding = "=".repeat((4 - base64String.length % 4) % 4);
-  const base64 = (base64String + padding)
-    .replace(/\-/g, "+")
-    .replace(/_/g, "/");
-
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-
-  for (let i = 0; i < rawData.length; ++i) {
-    outputArray[i] = rawData.charCodeAt(i);
-  }
-  return outputArray;
+PushExample.propTypes = {
+  user: propTypes.object.isRequired
 }
 
-export default PushExample
+const mapStateToProps = state => ({
+  user: state.auth.user
+})
+
+export default connect(mapStateToProps)(PushExample)
