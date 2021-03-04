@@ -46,6 +46,7 @@ function SearchResult () {
                         id={_id}
                         style={profileImgStyle}
                       />
+                      <h3>Testing</h3>
                     </Link>
                     <div className={styles.description}>
                       <p className={styles.name}>
