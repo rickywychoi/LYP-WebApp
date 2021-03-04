@@ -1,44 +1,47 @@
-import React,  {useState, useEffect} from 'react';
-import FriendDropDown from '../Search/FriendDropDown'
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import GridList from '@material-ui/core/GridList'
+import GridListTile from '@material-ui/core/GridListTile'
+import tileData from './tileData'
 import styles from './UserMedia.module.css'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import RUG from 'react-upload-gallery'
-import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import Paper from '@material-ui/core/Paper'
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper
+  },
+  gridList: {
+    width: 1050,
+    height: 350
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular
+  }
+}))
 
-function UserMedia() {
-    
+function UserMedia () {
+  const classes = useStyles()
+  return (
+    <div className={styles.container}>
+      <div className={styles.empty_container}></div>
+      <div className={classes.root}>
+        <Paper variant='outlined' square>
+          <GridList cellHeight={200} className={classes.gridList} cols={3}>
+            {tileData.map(tile => (
+              <GridListTile key={tile.img} cols={tile.cols || 1}>
+                <img src={tile.img} alt={tile.title} />
+              </GridListTile>
+            ))}
+          </GridList>
+        </Paper>
+      </div>
+    </div>
+  )
+}
 
-    return(
-        <div className={styles.container}>
-
-            <div className={styles.empty_div}></div>
-            <div className={styles.grid_container}>
-                <Form>
-                    <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <div className={styles.textarea}>
-                            <Form.Control as="textarea" rows={3} />
-                        </div>
-                        <div className={styles.upload_file}>     
-                            <Button variant="outline-primary">Share</Button>
-                        </div>
-                        <div className={styles.share}>
-                        {/* <RUG
-                            action="/api/upload" // upload route
-                            source={response => response.source} // response image source
-                        /> */}
-                        </div>
-                        
-                    </Form.Group>
-                </Form>
-            </div>
-            <div className={styles.empty_div}></div>
-            <div className={styles.posts_container}>
-            </div>
-        </div>
-        
-    )
-};
-
-export default UserMedia;
+export default UserMedia

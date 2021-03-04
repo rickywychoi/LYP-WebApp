@@ -1,28 +1,42 @@
 import React, { useState } from 'react'
-import Avatar from 'react-avatar'
+import { makeStyles } from '@material-ui/core/styles'
+import Avatar from '@material-ui/core/Avatar'
 import styles from './UserProfile.module.css'
 import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import classNames from 'classnames'
+
 import UserMedia from '../../components/UserNavigation/UserMedia'
 import UserFriends from '../../components/UserNavigation/UserFriends'
 import UserTimeline from '../../components/UserNavigation/UserTimeline'
-import UserAbout from '../../components/UserNavigation/UserAbout'
 import UserGroups from '../../components/UserNavigation/UserGroups'
-import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import ProfileInformation from '../../components/layout/ProfileInformation'
 
-function UserProfile (props) {
-  console.log(props.user)
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1)
+    }
+  },
+  small: {
+    width: theme.spacing(3),
+    height: theme.spacing(3)
+  },
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7)
+  }
+}))
 
-  const [nav, setNav] = useState('about')
+function UserProfile () {
+  const classes = useStyles()
+
+  const [nav, setNav] = useState('timeline')
 
   let navHandler
 
   const navigationTool = () => {
     if (nav === 'timeline') {
       navHandler = <UserTimeline />
-    } else if (nav === 'about') {
-      navHandler = <UserAbout />
     } else if (nav === 'friends') {
       navHandler = <UserFriends />
     } else if (nav === 'groups') {
@@ -39,13 +53,21 @@ function UserProfile (props) {
         <div className={styles.wrapper}>
           <div className={styles.grid_container}>
             <div className={styles.avatar_container}>
-              <Avatar name='Tyler Lee' />
+              <Avatar
+                style={{ height: '100px', width: '100px' }}
+                alt='Tyler Lee'
+                className={classes.large}
+                src='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg'
+              />
             </div>
 
             <div className={styles.name_container}>
               <h1> Tyler Lee</h1>
             </div>
             <div className={styles.user_follower}>followers</div>
+            <div className={styles.user_information}>
+              <ProfileInformation />
+            </div>
           </div>
 
           <div className={styles.grid_child}></div>
@@ -57,9 +79,6 @@ function UserProfile (props) {
           <Nav justify variant='tabs' defaultActiveKey='/home'>
             <Nav.Item>
               <Nav.Link onClick={() => setNav('timeline')}>Timeline</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link onClick={() => setNav('about')}>About</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link onClick={() => setNav('friends')}>Friends</Nav.Link>

@@ -1,41 +1,28 @@
 .container {
   width: 80%;
   margin: 0 auto;
-  text-align: center;
-}
-.inner_container {
-  display: inline-block;
-  width: 70%;
-  background-color: aquamarine;
-  margin: 0 auto;
-}
-.grid-container {
-  margin: 0 auto;
-  width: 70%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". textarea textarea textarea"
-    ". upload_file . share";
-}
-.textarea { 
-  grid-area: textarea; 
-}
-.upload_file { 
-  grid-area: upload_file; 
-}
-.share { 
-  grid-area: share; 
 }
 
-.empty_div {
-  height: 2em;
+.empty_container {
+  height: 5em;
 }
-.posts_container {
+
+.grid_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   margin: 0 auto;
-  width: 70%;
-  background-color: beige;
-  height: 50em;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". photos photos ."
+    "videos videos";
+  ;
+}
+
+.photos {
+  grid-area: photos;
+}
+
+.videos {
+  grid-area: videos;
 }

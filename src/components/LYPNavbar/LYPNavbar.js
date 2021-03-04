@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import {
   Navbar,
@@ -39,6 +39,15 @@ const LYPNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   ])
   let notificationsLength = notifications.length
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`/api/notification/receive`)
+  //     .then(res => {
+  //       setNotifications(res)
+  //     })
+  //     .catch(e => console.error(e))
+  // }, [])
+
   const handleInputChange = e => {
     e.preventDefault()
     setQuery(e.target.value)
@@ -51,7 +60,7 @@ const LYPNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   }
 
   const NotificationList = (
-    <Popover id='popover-positioned-bottom'>
+    <Popover id='popover-positioned-bottom' style={{ zIndex: '9999' }}>
       <Popover.Content>
         {notifications.map(({ message, createdDate, linkTo }, idx) => {
           if (notificationsLength === idx + 1) {
