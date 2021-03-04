@@ -1,8 +1,11 @@
 import React from 'react'
+import FriendCard from '../layout/FriendCard'
 
 function UserFriends() {
     return(
-        <div>UserFriends</div>
+        <div>
+            <FriendCard/>
+        </div>
     )
 };
 

@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import UplaodIcon from '../Icon/UploadIcon'
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
   root: {

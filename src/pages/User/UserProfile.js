@@ -9,7 +9,6 @@ import UserMedia from '../../components/UserNavigation/UserMedia'
 import UserFriends from '../../components/UserNavigation/UserFriends'
 import UserTimeline from '../../components/UserNavigation/UserTimeline'
 import UserGroups from '../../components/UserNavigation/UserGroups'
-import ProfileCard from '../../components/ProfileCard/ProfileCard'
 import ProfileInformation from '../../components/layout/ProfileInformation'
 
 
@@ -57,7 +56,7 @@ function UserProfile() {
 
         <div className={styles.grid_container}>
           <div className={styles.avatar_container}>
-            <Avatar style={{height: '100px', width: '100px'}}alt="Cindy Baker" className={classes.large} src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F998C113C5E5660FA29" />
+            <Avatar style={{height: '100px', width: '100px'}}alt="Tyler Lee" className={classes.large} src="https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg" />
           </div>
 
           <div className={styles.name_container}>
