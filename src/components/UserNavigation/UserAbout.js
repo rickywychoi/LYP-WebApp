@@ -1,8 +1,12 @@
 import React from 'react'
-
+import ProfileInformation from '../layout/ProfileInformation'
 function UserAbout() {
     return(
-        <div>UserAbout</div>
+        <div>
+            <div>
+                <ProfileInformation/>
+            </div>
+        </div>
     )
 };
 

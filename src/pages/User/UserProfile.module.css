@@ -28,22 +28,30 @@ html {
 .grid_container {
   margin: 0 auto;
   width: 40%;
+  height: 40%;
   display: grid;
   grid-template-columns: 1fr 1fr ;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "avatar_container name_container . ."
     "avatar_container user_follower . ."
+    "user_information user_information . ."
     ;
 }
 .avatar_container {
    grid-area: avatar_container; 
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .name_container { 
   grid-area: name_container; 
 }
 .user_follower { 
   grid-area: user_follower; 
+}
+.user_information {
+  grid-area: user_information;
 }
 .empty_container {
   height: 5em;
