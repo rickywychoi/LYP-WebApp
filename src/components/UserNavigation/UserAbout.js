@@ -1,9 +1,7 @@
 import React from 'react'
 
-function UserAbout() {
-    return(
-        <div>UserAbout</div>
-    )
-};
+function UserAbout () {
+  return <div>UserAbout</div>
+}
 
-export default UserAbout;
+export default UserAbout

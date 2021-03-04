@@ -1,29 +1,43 @@
-import React, { useState, Fragment, useRef } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState, Fragment } from 'react'
+import { useHistory, Link } from 'react-router-dom'
 import {
   Navbar,
   Nav,
   Form,
   FormControl,
   Image,
-  Button,
-  Overlay,
   OverlayTrigger,
   Popover
 } from 'react-bootstrap'
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone'
+import moment from 'moment'
 import styles from './LYPNavbar.module.css'
 import logo from '../../assets/images/LYP-Logo-no-link.png'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { logout } from '../../actions/auth'
-import NotificationList from '../../containers/NotificationList/NotificationList'
 
 const LYPNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
-  const ref = useRef(null)
   const history = useHistory()
   const [query, setQuery] = useState('')
-  const [show, setShow] = useState(false)
-  const [target, setTarget] = useState(null)
+  const [notifications, setNotifications] = useState([
+    {
+      message: 'Notification One Message - home',
+      createdDate: new Date(),
+      linkTo: '/home'
+    },
+    {
+      message: 'Notification Two Message - user',
+      createdDate: new Date(),
+      linkTo: '/user'
+    },
+    {
+      message: 'Notification Three Message - group',
+      createdDate: new Date(),
+      linkTo: '/group'
+    }
+  ])
+  let notificationsLength = notifications.length
 
   const handleInputChange = e => {
     e.preventDefault()
@@ -36,33 +50,45 @@ const LYPNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     }
   }
 
-  const handleClick = e => {
-    setShow(!show)
-    setTarget(e.target)
-  }
+  const NotificationList = (
+    <Popover id='popover-positioned-bottom'>
+      <Popover.Content>
+        {notifications.map(({ message, createdDate, linkTo }, idx) => {
+          if (notificationsLength === idx + 1) {
+            return (
+              <Link to={linkTo} className={styles.notificationItemLink}>
+                <div style={{ padding: '10px 5px 0 5px' }}>
+                  <p>{message}</p>
+                  <p>{moment(createdDate.getTime()).calendar()}</p>
+                </div>
+              </Link>
+            )
+          } else {
+            return (
+              <Link to={linkTo} className={styles.notificationItemLink}>
+                <div className={styles.notificationItem}>
+                  <p>{message}</p>
+                  <p>{moment(createdDate.getTime()).calendar()}</p>
+                </div>
+              </Link>
+            )
+          }
+        })}
+      </Popover.Content>
+    </Popover>
+  )
 
   const authLink = (
     <Nav className={styles.menus}>
-      {/* <Button variant='success' onClick={handleClick}>
-        Click me to see
-      </Button>
-      <Overlay
-        show={show}
-        target={target}
-        placement='bottom'
-        container={ref.current}
-      >
-        <NotificationList />
-        <Popover id='popover-positioned-bottom'>
-          <Popover.Content>
-            And here's some <strong>amazing</strong> content. It's very
-            engaging. right?
-          </Popover.Content>
-        </Popover>
-      </Overlay> */}
-      <OverlayTrigger trigger='click' placement='bottom' overlay={NotificationList}>
-        <Button variant='success'>Noti</Button>
-      </OverlayTrigger>
+      <Nav.Link>
+        <OverlayTrigger
+          trigger='click'
+          placement='bottom'
+          overlay={NotificationList}
+        >
+          <NotificationsNoneIcon />
+        </OverlayTrigger>
+      </Nav.Link>
       <Nav.Link href='#home'>Home</Nav.Link>
       <Nav.Link href='#features'>Features</Nav.Link>
       <Nav.Link onClick={logout}>Logout</Nav.Link>
