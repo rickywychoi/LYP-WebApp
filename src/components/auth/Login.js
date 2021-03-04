@@ -11,7 +11,7 @@ const Login = ({ login, isAuthenticated, location }) => {
     password: '',
   });
 
-  const [credentialError, setCredentialError] = useState('Errror');
+  const [credentialError, setCredentialError] = useState('');
 
   const { email, password } = formData;
 
@@ -29,8 +29,7 @@ const Login = ({ login, isAuthenticated, location }) => {
     const res = await login(formData);
     if (res.status === false) {
       setCredentialError('Invalid Credentials');
-    }
-    else if(res.emailVerified === false){
+    } else if (res.emailVerified === false) {
       setCredentialError('Your email has not verified yet');
     }
   };
