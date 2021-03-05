@@ -98,8 +98,6 @@ const LYPNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           <NotificationsNoneIcon />
         </OverlayTrigger>
       </Nav.Link>
-      <Nav.Link href='#home'>Home</Nav.Link>
-      <Nav.Link href='#features'>Features</Nav.Link>
       <Nav.Link onClick={logout}>Logout</Nav.Link>
     </Nav>
   )
