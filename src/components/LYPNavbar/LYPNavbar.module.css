@@ -22,3 +22,18 @@
 .hide {
   visibility: hidden;
 }
+
+.notificationItemLink {
+  text-decoration: none;
+  color: #868687
+}
+
+.notificationItemLink:hover {
+  text-decoration: none;
+  color: #000
+}
+
+.notificationItem {
+  padding: 10px 5px 0 5px;
+  border-bottom: 1px solid grey;
+}

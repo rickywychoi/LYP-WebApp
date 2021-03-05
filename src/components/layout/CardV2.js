@@ -1,52 +1,30 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
-import CardDeck from 'react-bootstrap/CardDeck'
-import CardGroup from 'react-bootstrap/CardGroup'
-import CardColumns from 'react-bootstrap/CardColumns'
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 
 
 function CardV2() {
     return (
-        <CardDeck>
-            <Card>
-                <Card.Img variant="top" src="holder.js/100px160" />
-                <Card.Body>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                    1st Card
-                </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                <a href="#"> Click </a>
-                </Card.Footer>
-            </Card>
+    <MDBCol style={{ maxWidth: "25rem" }}>
+      <MDBCard>
+        {/* <MDBCardImage className="img-fluid" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+          waves /> */}
+        <MDBCardBody>
+          <MDBCardTitle>Group 1</MDBCardTitle>
+          <MDBCardText>Love Your Planet is a social media platform for connecting people in the world who love nature, collaborating, and having voices towards sustainable living.</MDBCardText>
+        </MDBCardBody>
+      </MDBCard>
+      <br>
+      </br>
 
-            <Card>
-                <Card.Img variant="top" src="holder.js/100px160" />
-                <Card.Body>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                    2nd Card
-                </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                <a href="#">Click </a>
-                </Card.Footer>
-            </Card>
-            
-            <Card>
-                <Card.Img variant="top" src="holder.js/100px160" />
-                <Card.Body>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                    3rd card
-                </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                    <a href="#">Click </a>
-                </Card.Footer>
-            </Card>
-        </CardDeck>
+      <MDBCard>
+        {/* <MDBCardImage className="img-fluid" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+          waves /> */}
+        <MDBCardBody>
+          <MDBCardTitle>Group2</MDBCardTitle>
+          <MDBCardText>Love Your Planet is a social media platform for connecting people in the world who love nature, collaborating, and having voices towards sustainable living..</MDBCardText>
+        </MDBCardBody>
+      </MDBCard>
+    </MDBCol>
     )
 }
 

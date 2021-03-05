@@ -1,7 +1,13 @@
+html {
+  text-align: center;
+  margin: 0 auto;
+}
+
 .col-centered {
   float: none;
   margin: 0 auto;
 }
+
 .col-md-3,
 .col-md-4 {
   padding: 1rem;
@@ -10,13 +16,54 @@
   color: #fff;
   text-align: center;
 }
+
 .sample {
   text-align: center;
+  margin: 0 auto;
 }
+
 .container {
   width: 100%;
   text-align: center;
 }
+
 .wrapper {
   margin: 0 auto;
+}
+
+.grid_container {
+  margin: 0 auto;
+  width: 40%;
+  height: 40%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "avatar_container name_container . ."
+    "avatar_container user_follower . ."
+    "user_information user_information . ."
+  ;
+}
+
+.avatar_container {
+  grid-area: avatar_container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name_container {
+  grid-area: name_container;
+}
+
+.user_follower {
+  grid-area: user_follower;
+}
+
+.user_information {
+  grid-area: user_information;
+}
+
+.empty_container {
+  height: 5em;
 }

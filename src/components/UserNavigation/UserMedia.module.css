@@ -1,0 +1,28 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.empty_container {
+  height: 5em;
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 0 auto;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". photos photos ."
+    "videos videos";
+  ;
+}
+
+.photos {
+  grid-area: photos;
+}
+
+.videos {
+  grid-area: videos;
+}
